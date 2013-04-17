@@ -1,0 +1,11 @@
+<project default="build">
+	<property name="jarname" value="blocklayout" />
+	
+	<target name="compile">
+		<javac srcdir="src" destdir="bin" />
+	</target>
+	
+	<target name="build" depends="compile">
+		<jar jarfile="dist/${jarname}.jar" basedir="bin" />
+	</target>
+</project>
