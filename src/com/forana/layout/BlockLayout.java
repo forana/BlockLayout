@@ -31,7 +31,6 @@ public class BlockLayout implements LayoutManager2 {
 	private List<StyledComponent> components;
 	private int renderHeight;
 	private int renderWidth;
-	private int minimumWidth;
 	
 	public BlockLayout() {
 		this.components = new LinkedList<StyledComponent>();
@@ -62,7 +61,7 @@ public class BlockLayout implements LayoutManager2 {
 
 	@Override
 	public Dimension minimumLayoutSize(Container parent) {
-		return new Dimension(this.minimumWidth, this.renderHeight);
+		return this.preferredLayoutSize(parent);
 	}
 
 	@Override
@@ -96,19 +95,17 @@ public class BlockLayout implements LayoutManager2 {
 	}
 
 	@Override
-	public Dimension maximumLayoutSize(Container target) {
-		return new Dimension(0, 0);
+	public Dimension maximumLayoutSize(Container parent) {
+		return this.preferredLayoutSize(parent);
 	}
 
 	@Override
 	public float getLayoutAlignmentX(Container target) {
-		System.out.println("getLayoutAlignmentX - " + target);
 		return 0;
 	}
 
 	@Override
 	public float getLayoutAlignmentY(Container target) {
-		System.out.println("getLayoutAlignmentY - " + target);
 		return 0;
 	}
 
@@ -122,7 +119,6 @@ public class BlockLayout implements LayoutManager2 {
 			}
 		}
 		
-		this.minimumWidth = maxWidth;
 		this.renderWidth = Math.max(target.getWidth(), maxWidth);
 		
 		int x = 0;
