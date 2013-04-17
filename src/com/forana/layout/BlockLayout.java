@@ -1,3 +1,6 @@
+/*
+ * 2013 Alex Foran
+ */
 package com.forana.layout;
 
 import java.awt.Component;
