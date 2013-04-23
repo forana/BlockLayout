@@ -63,6 +63,11 @@ public class BlockLayout implements LayoutManager2 {
 	public Dimension minimumLayoutSize(Container parent) {
 		return this.preferredLayoutSize(parent);
 	}
+	
+	@Override
+	public Dimension maximumLayoutSize(Container parent) {
+		return this.preferredLayoutSize(parent);
+	}
 
 	@Override
 	public void layoutContainer(Container parent) {
@@ -95,18 +100,13 @@ public class BlockLayout implements LayoutManager2 {
 	}
 
 	@Override
-	public Dimension maximumLayoutSize(Container parent) {
-		return this.preferredLayoutSize(parent);
-	}
-
-	@Override
 	public float getLayoutAlignmentX(Container target) {
-		return 0;
+		return 0.5f;
 	}
 
 	@Override
 	public float getLayoutAlignmentY(Container target) {
-		return 0;
+		return 0.5f;
 	}
 
 	@Override
